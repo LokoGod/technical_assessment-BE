@@ -3,6 +3,7 @@ import bodyParser from "body-parser";
 import "dotenv/config";
 
 // Import custom routes
+import { userRoutes } from "./routes/userRouter";
 
 // Instances
 const app = express();
@@ -11,7 +12,7 @@ const app = express();
 app.use(bodyParser.json());
 
 // API routing
-
+app.use("/api/v1/user", userRoutes)
 
 const port = process.env.PORT || 9000;
 
