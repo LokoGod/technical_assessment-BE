@@ -25,20 +25,13 @@ model Roles {
   userId Int
 }
 
-model Medicine {
+model Inventory {
   id Int @id @default(autoincrement())
   name String @unique
   description String
   manufactureDate DateTime
-  ExpireDate DateTime
-  inventory Inventory @relation(fields: [inventoryId], references: [id])
-  inventoryId Int
-}
-
-model Inventory {
-  id Int @id @default(autoincrement())
+  expireDate DateTime
   quantity Int
-  medicine Medicine []
 }
 
 model Customers {
