@@ -3,7 +3,7 @@ import bodyParser from "body-parser";
 import "dotenv/config";
 
 // Import custom routes
-import { userRoutes } from "./routes/userRouter";
+import { userRoutes } from "./routes/userRoutes";
 
 // Instances
 const app = express();
