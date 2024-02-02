@@ -9,7 +9,7 @@ const getAllInventoryItems = async () => {
 const createInventoryItems = async (
   name: string,
   description: string,
-  price:number,
+  price: number,
   quantity: number,
   manufactureDate: string,
   expireDate: string
@@ -19,8 +19,30 @@ const createInventoryItems = async (
   });
 };
 
+const getSpecificInventoryItem = async (id: number) => {
+  return prisma.inventory.findUnique({ where: { id: id } });
+};
+
+const updateInventoryItem = async () => {};
+
+const softDeleteInventoryItem = async (id: number) => {
+  return prisma.inventory.update({
+    where: { id: id },
+    data: { isDeleted: true },
+  });
+};
+
+const deleteInventoryItem = async (id: number) => {
+    return prisma.inventory.delete({
+        where: {id: id}
+    })
+};
+
 const inventoryRepository = {
   getAllInventoryItems,
   createInventoryItems,
+  getSpecificInventoryItem,
+  softDeleteInventoryItem,
+  deleteInventoryItem
 };
 export default inventoryRepository;
