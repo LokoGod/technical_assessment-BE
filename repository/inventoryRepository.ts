@@ -9,12 +9,13 @@ const getAllInventoryItems = async () => {
 const createInventoryItems = async (
   name: string,
   description: string,
-  manufactureDate: Date,
-  expireDate: Date,
-  quantity: number
+  price:number,
+  quantity: number,
+  manufactureDate: string,
+  expireDate: string
 ) => {
   return prisma.inventory.create({
-    data: { name, description, manufactureDate, expireDate, quantity },
+    data: { name, description, price, quantity, manufactureDate, expireDate },
   });
 };
 
