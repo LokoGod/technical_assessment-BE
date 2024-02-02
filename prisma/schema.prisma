@@ -13,4 +13,36 @@ datasource db {
 model User {
   id Int @id @default(autoincrement())
   name String
+  userName String
+  password String @unique
+  roles Roles []
+}
+
+model Roles {
+  id Int @id @default(autoincrement())
+  roleName String
+  user User @relation(fields: [userId], references: [id])
+  userId Int
+}
+
+model Medicine {
+  id Int @id @default(autoincrement())
+  name String @unique
+  description String
+  manufactureDate DateTime
+  ExpireDate DateTime
+  inventory Inventory @relation(fields: [inventoryId], references: [id])
+  inventoryId Int
+}
+
+model Inventory {
+  id Int @id @default(autoincrement())
+  quantity Int
+  medicine Medicine []
+}
+
+model Customers {
+  id Int @id @default(autoincrement())
+  name String
+  phoneNum Int @unique
 }
