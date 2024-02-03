@@ -1,0 +1,64 @@
+GET
+/api/v1/user
+Find all users
+
+POST
+/api/v1/user/signup
+Create/Signup a user to the system
+
+POST
+/api/v1/user/login
+Log the user to the system
+
+DELETE
+/api/v1/user/:id
+Delete/Remove the user from the system
+
+GET
+/api/v1/inventory
+Find all inventory medications
+
+POST
+/api/v1/inventory
+Create a medication for inventory
+
+GET
+/api/v1/inventory/:id
+Find specific medication from inventory
+
+PUT
+/api/v1/inventory/:id
+Update specific medication from inventory
+
+DELETE
+/api/v1/inventory/:id
+Delete specific medication from inventory
+
+PUT
+/api/v1/inventory/softDelete/:id
+Soft-Delete a specific medication from inventory
+
+GET
+/api/v1/customer
+Find all customer records
+
+POST
+/api/v1/customer
+Create a customer record
+
+GET
+/api/v1/customer/:id
+Find a specific customer record
+
+PUT
+/api/v1/customer/:id
+Update a specific customer record
+
+DELETE
+/api/v1/customer/:id
+Delete a specific customer record
+
+PUT
+/api/v1/customer/softDelete/:id
+Soft-Delete a specific customer record
+
