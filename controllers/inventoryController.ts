@@ -40,6 +40,27 @@ const getSpecificInventoryItem = async (req: any, res: any) => {
   }
 };
 
+const updateInventoryItem = async (req: any, res: any) => {
+  try {
+    const id = Number(req.params.id);
+    const { name, description, price, quantity, manufactureDate, expireDate } =
+      req.body;
+    const inventory = await inventoryRepository.updateInventoryItem(
+      id,
+      name,
+      description,
+      price,
+      quantity,
+      manufactureDate,
+      expireDate
+    );
+    res.status(200).json({ inventory });
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({ Error: "Internal server error" });
+  }
+};
+
 const softDeleteInventoryItem = async (req: any, res: any) => {
   try {
     const id = Number(req.params.id);
@@ -52,20 +73,21 @@ const softDeleteInventoryItem = async (req: any, res: any) => {
 };
 
 const deleteInventoryItem = async (req: any, res: any) => {
-    try {
-      const id = Number(req.params.id);
-      const inventory = await inventoryRepository.deleteInventoryItem(id);
-      res.status(200).json({ inventory });
-    } catch (error) {
-      console.error(error);
-      res.status(500).json({ Error: "Internal server error" });
-    }
-  };
+  try {
+    const id = Number(req.params.id);
+    const inventory = await inventoryRepository.deleteInventoryItem(id);
+    res.status(200).json({ inventory });
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({ Error: "Internal server error" });
+  }
+};
 
 export {
   getAllInventoryItems,
   createInventoryItems,
   getSpecificInventoryItem,
+  updateInventoryItem,
   softDeleteInventoryItem,
-  deleteInventoryItem
+  deleteInventoryItem,
 };
