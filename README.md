@@ -22,12 +22,12 @@ Log-in using the following credentials:
 
 role: owner\
 userName: lokogod\
-password: MayuPali@2024\
+password: MayuPali@2024
 
 role: manager\
 userName: adzero\
-password: MayuPali@2024\
+password: MayuPali@2024
 
 role: cashier\
 userName: mico\
-password: MayuPali@2024\
+password: MayuPali@2024
