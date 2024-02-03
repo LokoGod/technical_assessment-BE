@@ -33,6 +33,10 @@ const getSpecificInventoryItem = async (req: any, res: any) => {
   try {
     const id = Number(req.params.id);
     const inventory = await inventoryRepository.getSpecificInventoryItem(id);
+    if (!inventory) {
+      res.status(404).json({ Error: "Inventory item not found" });
+      return;
+    }
     res.status(200).json({ inventory });
   } catch (error) {
     console.error(error);

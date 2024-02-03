@@ -12,11 +12,10 @@ const getAllCustomerRecords = async (req: any, res: any) => {
 
 const createCustomerRecords = async (req: any, res: any) => {
   try {
-    const { name, phoneNum } =
-      req.body;
+    const { name, phoneNum } = req.body;
     const customer = await customerRepository.createCustomerRecords(
       name,
-      phoneNum,
+      phoneNum
     );
     res.status(201).json({ customer });
   } catch (error) {
@@ -29,6 +28,10 @@ const getSpecificCustomerRecords = async (req: any, res: any) => {
   try {
     const id = Number(req.params.id);
     const customer = await customerRepository.getSpecificCustomerRecords(id);
+    if (!customer) {
+      res.status(404).json({ Error: "Customer not found" });
+      return;
+    }
     res.status(200).json({ customer });
   } catch (error) {
     console.error(error);
@@ -39,12 +42,11 @@ const getSpecificCustomerRecords = async (req: any, res: any) => {
 const updateCustomerRecord = async (req: any, res: any) => {
   try {
     const id = Number(req.params.id);
-    const { name, phoneNum } =
-      req.body;
+    const { name, phoneNum } = req.body;
     const customer = await customerRepository.updateCustomerRecord(
       id,
       name,
-      phoneNum,
+      phoneNum
     );
     res.status(200).json({ customer });
   } catch (error) {
