@@ -36,7 +36,7 @@ model Inventory {
   isDeleted       Boolean @default(false)
 }
 
-model Customers {
+model Customer {
   id        Int     @id @default(autoincrement())
   name      String
   phoneNum  Int     @unique
