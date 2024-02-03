@@ -11,6 +11,10 @@ const getAllCustomerRecords = async (req: any, res: any) => {
 };
 
 const createCustomerRecords = async (req: any, res: any) => {
+  const { role } = req.user
+  if (role !== 'owner') {
+    return res.status(403).json({ error: "Forbidden"})
+  }
   try {
     const { name, phoneNum } = req.body;
     const customer = await customerRepository.createCustomerRecords(
@@ -56,6 +60,10 @@ const updateCustomerRecord = async (req: any, res: any) => {
 };
 
 const softDeleteCustomerRecord = async (req: any, res: any) => {
+  const { role } = req.user;
+  if (role !== 'owner' && role !== 'manager') {
+    return res.status(403).json({ error: "Forbidden" });
+  }
   try {
     const id = Number(req.params.id);
     const customer = await customerRepository.softDeleteCustomerRecord(id);
@@ -67,6 +75,10 @@ const softDeleteCustomerRecord = async (req: any, res: any) => {
 };
 
 const deleteCustomerRecord = async (req: any, res: any) => {
+  const { role } = req.user
+  if (role !== 'owner') {
+    return res.status(403).json({ error: "Forbidden"})
+  }
   try {
     const id = Number(req.params.id);
     const customer = await customerRepository.deleteCustomerRecord(id);

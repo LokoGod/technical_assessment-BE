@@ -1,4 +1,5 @@
 import express from "express";
+import { requireAuth } from "../middleware/requireAuth";
 const customerRoutes = express.Router();
 
 import {
@@ -9,6 +10,8 @@ import {
   softDeleteCustomerRecord,
   deleteCustomerRecord,
 } from "../controllers/customerController";
+
+customerRoutes.use(requireAuth)
 
 customerRoutes
   .route("/")
