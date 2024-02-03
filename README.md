@@ -31,3 +31,5 @@ password: MayuPali@2024
 role: cashier\
 userName: mico\
 password: MayuPali@2024
+
+When logged-in the endpoint should return the appropriate token.
