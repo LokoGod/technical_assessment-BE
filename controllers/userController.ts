@@ -18,11 +18,11 @@ const getAllUsers = async (req: any, res: any) => {
 };
 
 const signUp = async (req: any, res: any) => {
-  const { name, userName, password } = req.body;
+  const { name, userName, password, role } = req.body;
   try {
-    const user = await userRepository.signUp(name, userName, password);
+    const user = await userRepository.signUp(name, userName, password, role);
     const token = await createToken(user.id);
-    res.status(201).json({ userName, password, token });
+    res.status(201).json({ userName, password, token, role });
   } catch (error) {
     console.error(error);
     res.status(500).json({ Error: "Internal server error" });

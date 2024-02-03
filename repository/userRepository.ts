@@ -7,16 +7,22 @@ const getAllUsers = async () => {
   return prisma.user.findMany({});
 };
 
-const signUp = async (name: string, userName: string, password: string) => {
+const validRoles = ['owner', 'manager', 'cashier']
+
+const signUp = async (name: string, userName: string, password: string, role: string) => {
   if (!userName || !password) {
     throw Error("username & password mandatory");
+  }
+
+  if (!validRoles.includes(role)) {
+    throw Error("Invalid role, choose from: Owner, Manager, Cashier")
   }
 
   const salt = await bcrypt.genSalt(10);
   const hash = await bcrypt.hash(password, salt);
 
   return prisma.user.create({
-    data: { name, userName, password: hash },
+    data: { name, userName, password: hash, role },
   });
 };
 

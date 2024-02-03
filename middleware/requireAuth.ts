@@ -6,7 +6,7 @@ const prisma = new PrismaClient();
 const requireAuth = async (req: any, res: any, next: any) => {
   const { authorization } = req.headers;
   if (!authorization) {
-    return res.status(401).json({ error: "Auth token required" });
+    return res.status(401).json({ error: "Unauthorized" });
   }
 
   const token = authorization.split(" ")[1];
@@ -16,7 +16,9 @@ const requireAuth = async (req: any, res: any, next: any) => {
       token,
       "thisismysecretpasswordnotsosecretnowisit"
     ) as JwtPayload;
-    req.user = prisma.user.findUnique({ where: { id: id }, select: id });
+    const user = await prisma.user.findUnique({ where: { id } });
+    if(!user) throw new Error('User not found')
+    req.user = user
     next()
   } catch (error) {
     console.log(error);

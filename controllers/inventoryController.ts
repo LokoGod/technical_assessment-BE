@@ -11,6 +11,10 @@ const getAllInventoryItems = async (req: any, res: any) => {
 };
 
 const createInventoryItems = async (req: any, res: any) => {
+  const { role } = req.user
+  if (role !== 'owner') {
+    return res.status(403).json({ error: "Forbidden"})
+  }
   try {
     const { name, description, price, quantity, manufactureDate, expireDate } =
       req.body;
@@ -66,6 +70,10 @@ const updateInventoryItem = async (req: any, res: any) => {
 };
 
 const softDeleteInventoryItem = async (req: any, res: any) => {
+  const { role } = req.user;
+  if (role !== 'owner' && role !== 'manager') {
+    return res.status(403).json({ error: "Forbidden" });
+  }
   try {
     const id = Number(req.params.id);
     const inventory = await inventoryRepository.softDeleteInventoryItem(id);
@@ -77,6 +85,10 @@ const softDeleteInventoryItem = async (req: any, res: any) => {
 };
 
 const deleteInventoryItem = async (req: any, res: any) => {
+  const { role } = req.user
+  if (role !== 'owner') {
+    return res.status(403).json({ error: "Forbidden"})
+  }
   try {
     const id = Number(req.params.id);
     const inventory = await inventoryRepository.deleteInventoryItem(id);

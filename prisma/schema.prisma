@@ -10,21 +10,14 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
+
 model User {
-  id            Int     @id @default(autoincrement())
-  name          String
-  userName      String @unique
-  password      String  @unique
-  roles         Roles[]
-}
-
-model Roles {
   id       Int    @id @default(autoincrement())
-  roleName String
-  user     User   @relation(fields: [userId], references: [id])
-  userId   Int
+  name     String
+  userName String @unique
+  password String @unique
+  role     String 
 }
-
 
 model Inventory {
   id              Int     @id @default(autoincrement())

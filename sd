@@ -1,0 +1,36 @@
+{
+    "name": "mayukhaP",
+    "userName": "lokogod2",
+    "password": "MayuPali@2024",
+    "role": "owner"
+}
+
+{
+    "name": "Medi01",
+    "description": "this is a medir",
+    "price": 890,
+    "quantity": 1000,
+    "manufactureDate": "2023-04-021 ",
+    "expireDate": "2025-01-10 "
+}
+
+{
+    "userName": "lokogod",
+    "password": "MayuPali@2024",
+    "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NiwiaWF0IjoxNzA2OTQ1NzI5LCJleHAiOjE3MDcyMDQ5Mjl9.0prOE9tnQ9_QVhujUqfLuetX_8JKsDGbH8bBeXJJU4w",
+    "role": "owner"
+}
+
+{
+    "userName": "adzero",
+    "password": "MayuPali@2024",
+    "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NywiaWF0IjoxNzA2OTQ1NzU1LCJleHAiOjE3MDcyMDQ5NTV9.Nj3GQQ-vlzKkNnkU_N2ANK_drN5iEIMXo0Xvtfw5_sE",
+    "role": "manager"
+}
+
+{
+    "userName": "mico",
+    "password": "MayuPali@2024",
+    "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6OCwiaWF0IjoxNzA2OTQ1NzcyLCJleHAiOjE3MDcyMDQ5NzJ9.P1Dt0ewIF3KdfDEjavORxulKL_v2ATrB9oq2dKdQAGQ",
+    "role": "cashier"
+}
