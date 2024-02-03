@@ -36,3 +36,5 @@ password: MayuPali@2024\
 "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6OCwiaWF0IjoxNzA2OTQ1NzcyLCJleHAiOjE3MDcyMDQ5NzJ9.P1Dt0ewIF3KdfDEjavORxulKL_v2ATrB9oq2dKdQAGQ"
 
 When logged-in the endpoint should return the appropriate token.
+
+Copy the tokens and paste it in postman>Auth>Bearer Token>Token
